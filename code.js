@@ -31,7 +31,7 @@ window.onload = function () {
     );
 
     for (let i = 0; i < cards.length; i++) {
-      cards[i].innerText = shuffledWords[i];
+      cards[i].innerText = shuffledWords[i].toUpperCase();
     }
 
     wordsSet = true;
