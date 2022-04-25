@@ -140,7 +140,7 @@ document.addEventListener("click", function (event) {
       });
     }
     updateCards();
-    //checkBingo(boardState);
+    checkBingo(boardState);
   }
 });
 
@@ -174,43 +174,40 @@ function shuffle(array, seed) {
 }
 
 function checkBingo(twoDimensionalArray) {
-  let bingo = false;
-  let bingoRow = [];
-  let bingoColumn = [];
-  let bingoDiagonal = [];
-  let bingoDiagonal2 = [];
-
+  //check if twoDimensionalArray has a row filled with 1s
   for (let i = 0; i < twoDimensionalArray.length; i++) {
-    for (let j = 0; j < twoDimensionalArray[i].length; j++) {
-      if (twoDimensionalArray[i][j] === 1) {
-        bingoRow.push(i);
-        bingoColumn.push(j);
-        if (i === j) {
-          bingoDiagonal.push(i);
-        }
-        if (i + j === twoDimensionalArray.length - 1) {
-          bingoDiagonal2.push(i);
-        }
-      }
+    let row = twoDimensionalArray[i];
+    let rowSum = 0;
+    for (let j = 0; j < row.length; j++) {
+      rowSum += row[j];
+    }
+    if (rowSum === 5) {
+      firebase.database().ref("w").set(playerName);
     }
   }
-
-  if (bingoRow.length === 5) {
-    bingo = true;
-  } else if (bingoColumn.length === 5) {
-    bingo = true;
-  } else if (bingoDiagonal.length === 5) {
-    bingo = true;
-  } else if (bingoDiagonal2.length === 5) {
-    bingo = true;
+  //check if twoDimensionalArray has a column filled with 1s
+  for (let i = 0; i < twoDimensionalArray[0].length; i++) {
+    let columnSum = 0;
+    for (let j = 0; j < twoDimensionalArray.length; j++) {
+      columnSum += twoDimensionalArray[j][i];
+    }
+    if (columnSum === 5) {
+      firebase.database().ref("w").set(playerName);
+    }
   }
-
-  if (bingo) {
-    firebase.database().ref(`p/${playerName}`).update({
-      hb: true,
-    });
-    firebase.database().ref().update({
-      w: playerName,
-    });
+  //check if twoDimensionalArray has a diagonal filled with 1s
+  let diagonalSum = 0;
+  for (let i = 0; i < twoDimensionalArray.length; i++) {
+    diagonalSum += twoDimensionalArray[i][i];
+  }
+  if (diagonalSum === 5) {
+    firebase.database().ref("w").set(playerName);
+  }
+  diagonalSum = 0;
+  for (let i = 0; i < twoDimensionalArray.length; i++) {
+    diagonalSum += twoDimensionalArray[i][twoDimensionalArray.length - i - 1];
+  }
+  if (diagonalSum === 5) {
+    firebase.database().ref("w").set(playerName);
   }
 }
