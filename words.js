@@ -24,4 +24,6 @@ let words = [
   "Cous",
   "*Dieter confused*",
   "Laat valle",
+  "wajow",
+  "*slaapt*",
 ];
