@@ -140,7 +140,7 @@ document.addEventListener("click", function (event) {
       });
     }
     updateCards();
-    checkBingo(boardState);
+    //checkBingo(boardState);
   }
 });
 
