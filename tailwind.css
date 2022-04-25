@@ -740,6 +740,42 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 0px;
   }
 
+  .lg\:-mr-\[1\.3rem\] {
+    margin-right: -1.3rem;
+  }
+
+  .lg\:-mr-\[1\.5rem\] {
+    margin-right: -1.5rem;
+  }
+
+  .lg\:-mr-\[1\.6rem\] {
+    margin-right: -1.6rem;
+  }
+
+  .lg\:-mr-\[1\.7rem\] {
+    margin-right: -1.7rem;
+  }
+
+  .lg\:-mr-\[1\.9rem\] {
+    margin-right: -1.9rem;
+  }
+
+  .lg\:-mr-\[2\.1rem\] {
+    margin-right: -2.1rem;
+  }
+
+  .lg\:-mr-\[2\.3rem\] {
+    margin-right: -2.3rem;
+  }
+
+  .lg\:-mr-\[2\.8rem\] {
+    margin-right: -2.8rem;
+  }
+
+  .lg\:-ml-\[1\.7rem\] {
+    margin-left: -1.7rem;
+  }
+
   .lg\:gap-4 {
     gap: 1rem;
   }
