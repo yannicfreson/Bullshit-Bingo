@@ -22,7 +22,7 @@ let words = [
   "Zehma",
   "Sfeerspons",
   "Cous",
-  "*Dieter confused*",
+  "*confused*",
   "Laat valle",
   "wajow",
   "*slaapt*",
