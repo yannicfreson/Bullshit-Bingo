@@ -40,8 +40,11 @@ window.onload = function () {
       .database()
       .ref("cd")
       .once("value", (snapshot) => {
-        if (snapshot.val() !== new Date().getDate()) {
-          firebase.database().ref("cd").set(new Date().getDate());
+        if (snapshot.val() !== Math.floor(new Date().getDate() / 7)) {
+          firebase
+            .database()
+            .ref("cd")
+            .set(Math.floor(new Date().getDate() / 7));
           firebase.database().ref("w").set("no");
           firebase.database().ref("p").set({});
         }
